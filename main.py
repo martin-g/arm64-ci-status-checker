@@ -57,10 +57,10 @@ def github(project):
     try:
         status = json['workflow_runs'][0]['conclusion']
     except e:
-        debug('An error occurred while reading the status of Github project "' + projectName + '": ' + e)
+        debug('An error occurred while reading the status of Github project "' + project_name + '": ' + e)
     return status
 
-def circleci(projectName):
+def circleci(project_name):
     return 'TODO'
     
 def es_index(bulk_req_body):
@@ -73,21 +73,21 @@ def es_index(bulk_req_body):
     json = resp.json()
     debug(json)
 
-def bulk_snippet(projectName, status, ci_provider):
+def bulk_snippet(project_name, status, ci_provider):
     bulk_snippet = bulk_command
-    bulk_snippet += '{ "projectName": "'+projectName+'", "status": "'+status+'", "ci_provider": "'+ ci_provider + '", "timestamp": "'+now_str+'" }\n'
+    bulk_snippet += '{ "project_name": "'+project_name+'", "status": "'+status+'", "ci_provider": "'+ ci_provider + '", "timestamp": "'+now_str+'" }\n'
     return bulk_snippet
 
 def main():
     bulk_req_body = ''
 
-    for projectName in github_projects:
-        status = github(projectName)
-        bulk_req_body += bulk_snippet(projectName, status, 'github-actions')
+    for project_name in github_projects:
+        status = github(project_name)
+        bulk_req_body += bulk_snippet(project_name, status, 'github-actions')
         
-    for projectName in circleci_projects:
-        status = circleci(projectName)
-        bulk_req_body += bulk_snippet(projectName, status, 'circleci')
+    for project_name in circleci_projects:
+        status = circleci(project_name)
+        bulk_req_body += bulk_snippet(project_name, status, 'circleci')
 
     bulk_req_body += '\n'
     debug(bulk_req_body)
