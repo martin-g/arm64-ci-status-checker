@@ -5,6 +5,7 @@
 # - Github Action: https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28
 
 from datetime import datetime
+import os
 import requests
 from requests.auth import HTTPBasicAuth
 import sys
@@ -39,7 +40,9 @@ now_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
 bulk_command = '{ "index" : { "_index" : "aarch64-ci-status-'+today_str+'" } }\n'
 
-basic_auth = HTTPBasicAuth('elastic', 'C1VzGS4gm679Z0GTcPpA')
+es_user = os.getenv('ES_USER')
+es_password = os.environ.get('ES_PASSWORD')
+basic_auth = HTTPBasicAuth(es_user, es_password)
 
 def github(project):
     """
