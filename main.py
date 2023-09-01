@@ -38,11 +38,11 @@ now = datetime.now()
 today_str = now.strftime("%Y-%m-%d")
 now_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
-bulk_command = '{ "index" : { "_index" : "aarch64-ci-status-'+today_str+'" } }\n'
-
 es_user = os.getenv('ES_USER')
 es_password = os.environ.get('ES_PASSWORD')
-basic_auth = HTTPBasicAuth(es_user, es_password)
+es_url = os.environ.get('ES_URL') # e.g. http://localhost:9200
+es_basic_auth = HTTPBasicAuth(es_user, es_password)
+es_bulk_command = '{ "index" : { "_index" : "aarch64-ci-status-'+today_str+'" } }\n'
 
 def github(project):
     """
@@ -68,13 +68,12 @@ def es_index(bulk_req_body):
     Indexes the statuses of all monitored projects into Elasticsearch index 
     named 'aarch64-ci-status-<DATE>`
     """
-    url = 'http://localhost:9200/_bulk/'
-    resp = requests.post(url, headers=es_bulk_req_headers, data=bulk_req_body, auth=basic_auth)
+    resp = requests.post(es_url + '/_bulk/', headers=es_bulk_req_headers, data=bulk_req_body, auth=es_basic_auth)
     json = resp.json()
     debug(json)
 
 def bulk_snippet(project_name, status, ci_provider):
-    bulk_snippet = bulk_command
+    bulk_snippet = es_bulk_command
     bulk_snippet += '{ "project_name": "'+project_name+'", "status": "'+status+'", "ci_provider": "'+ ci_provider + '", "timestamp": "'+now_str+'" }\n'
     return bulk_snippet
 
