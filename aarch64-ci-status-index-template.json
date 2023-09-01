@@ -1,0 +1,25 @@
+{
+    "index_patterns": ["aarch64-ci-status-*"],
+    "priority" : 1,
+    "template": {
+        "settings": {
+           "number_of_shards": 1
+        },
+        "mappings": {
+            "properties": {
+                "projectName": {
+                    "type": "keyword"
+                },
+                "status": {
+                    "type": "keyword"
+                },
+                "ci_provider": {
+                    "type": "keyword"
+                },
+                "timeStamp": {
+                    "type": "date"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,2 @@
+{ "index" : { "_index" : "aarch64-ci-status-1" } }
+{ "projectName": "test11", "status": "success", "timestamp": "2023-09-01T01-01-03" }
