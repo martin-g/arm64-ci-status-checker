@@ -36,7 +36,7 @@ es_bulk_req_headers = {
 
 now = datetime.now()
 today_str = now.strftime("%Y-%m-%d")
-now_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+now_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 es_user = os.getenv('ES_USER')
 es_password = os.environ.get('ES_PASSWORD')
