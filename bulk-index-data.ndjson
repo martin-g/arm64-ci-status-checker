@@ -1,2 +1,8 @@
-{ "index" : { "_index" : "aarch64-ci-status-1" } }
-{ "projectName": "test11", "status": "success", "timestamp": "2023-09-01T01-01-03" }
+{ "index" : { "_index" : "aarch64-ci-status-2023-09-03" } }
+{ "project_name": "dummy1", "status": "failed", "ci_provider": "github-actions", "timestamp": "2023-09-03T01:01:03Z" }
+{ "index" : { "_index" : "aarch64-ci-status-2023-09-03" } }
+{ "project_name": "dummy2", "status": "success", "ci_provider": "circleci", "timestamp": "2023-09-03T01:01:03Z" }
+{ "index" : { "_index" : "aarch64-ci-status-2023-09-03" } }
+{ "project_name": "dummy3", "status": "failed", "ci_provider": "circleci", "timestamp": "2023-09-03T01:01:03Z" }
+{ "index" : { "_index" : "aarch64-ci-status-2023-09-03" } }
+{ "project_name": "dummy4", "status": "failed", "ci_provider": "circleci", "timestamp": "2023-09-03T01:01:03Z" }
