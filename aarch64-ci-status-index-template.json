@@ -16,6 +16,9 @@
                 "ci_provider": {
                     "type": "keyword"
                 },
+                "ci_job_name": {
+                    "type": "keyword"
+                },
                 "timestamp": {
                     "type": "date"
                 }

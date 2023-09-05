@@ -15,13 +15,19 @@ http --auth elastic:C1VzGS4gm679Z0GTcPpA DELETE localhost:9200/_index_template/a
 ## Index some data
 
 ```
-cat dummy-data.json | http --auth elastic:C1VzGS4gm679Z0GTcPpA POST localhost:9200/aarch64-ci-status-1/_doc/
+http --auth elastic:C1VzGS4gm679Z0GTcPpA POST localhost:9200/aarch64-ci-status-YYYY-MM-DD/_doc/ @dummy-data.json
 ```
 
 ## Bulk index data
 
 ```
 http --auth elastic:C1VzGS4gm679Z0GTcPpA POST localhost:9200/_bulk/ @bulk-index-data.ndjson Content-Type:application/x-ndjson
+```
+
+## Delete index
+
+```
+http --auth elastic:C1VzGS4gm679Z0GTcPpA DELETE localhost:9200/aarch64-ci-status-2023-09-04
 ```
 
 ## Get data
