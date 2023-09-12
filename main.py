@@ -36,6 +36,7 @@ github_projects = [
     'goharbor/harbor-arm',
     'hashicorp/consul',
     'biod/sambamba',
+    'inab/trimal',
 ]
 
 circleci_projects = [
