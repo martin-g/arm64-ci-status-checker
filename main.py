@@ -38,10 +38,11 @@ github_projects = [
     'biod/sambamba',
     'inab/trimal',
     'ninja-build/ninja',
+    'freebayes/freebayes',
 ]
 
 circleci_projects = [
-    'cloudera/hue'
+    'cloudera/hue',
 ]
 
 github_headers = {
