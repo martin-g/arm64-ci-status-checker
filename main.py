@@ -35,6 +35,7 @@ github_projects = [
     'seaweedfs/seaweedfs',
     'goharbor/harbor-arm',
     'hashicorp/consul',
+    'biod/sambamba',
 ]
 
 circleci_projects = [
