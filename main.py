@@ -37,6 +37,7 @@ github_projects = [
     'hashicorp/consul',
     'biod/sambamba',
     'inab/trimal',
+    'ninja-build/ninja',
 ]
 
 circleci_projects = [
