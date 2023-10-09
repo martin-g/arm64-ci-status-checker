@@ -41,6 +41,7 @@ github_projects = [
     # 'freebayes/freebayes',
     'bioconda/bioconda-utils',
     'Maihj/AC-DIAMOND',
+    'apache/avro',
 ]
 
 circleci_projects = [
