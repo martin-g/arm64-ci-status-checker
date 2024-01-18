@@ -39,9 +39,10 @@ github_projects = [
     # 'inab/trimal',
     # 'ninja-build/ninja',
     # 'freebayes/freebayes',
-    'bioconda/bioconda-utils',
-    'Maihj/AC-DIAMOND',
-    'apache/avro',
+    # 'bioconda/bioconda-utils',
+    # 'Maihj/AC-DIAMOND',
+    # 'apache/avro',
+    'BrendelGroup/AEGeAn',
 ]
 
 circleci_projects = [
